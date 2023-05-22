@@ -5,7 +5,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Instrument Serif', serif;
+
+
 }
+
+body {background-color: rgb(35, 32, 32);}
 
 h1 {
     font-size: 50px;
@@ -29,12 +33,28 @@ h6 {
     font-size: 12px;
 }
 
-p {font-size: 16px;
-color: aqua;
-margin: 15px 0 20px 0;
+p {
+    font-size: 16px;
+    color: aqua;
+    margin: 15px 0 20px 0;
 }
 
-.section-p1{ padding: 40px 80px;}
+.section-p1 {
+    padding: 40px 80px;
+}
+
+button.normal {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: aqua;
+    background-color: rgb(139, 40, 139);
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
 
 /* barra de navegacion */
 
@@ -93,6 +113,82 @@ margin: 15px 0 20px 0;
     left: 20px;
 }
 
+#celular {
+    display: none;
+    align-items: center;
+    position: relative;
+}
+
+#cerrar {
+    display: none;
+}
+
+
+/* footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: black;
+
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+}
+
+footer .logo2 {
+    margin-bottom: 20px;
+    width: 50px;
+}
+
+footer h4 {
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+footer p {
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+
+
+footer a {
+    font-size: 13px;
+    text-decoration: none;
+    color: aqua;
+    margin-bottom: 10px;
+}
+
+footer .seguinos {
+    margin-top: 20px;
+}
+
+footer .seguinos i {
+    color: aqua;
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+footer .mpagos {
+    width: 100px;
+}
+
+footer .seguinos i:hover,
+footer a:hover {
+    color: rgb(139, 40, 139);
+}
+
+footer .copyright {
+    width: 100%;
+    text-align: center;
+    color: aqua;
+}
+
 
 /*index.html*/
 
@@ -129,18 +225,502 @@ margin: 15px 0 20px 0;
 
 }
 
-#caracteristicas .carac-box{
+
+#caracteristicas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+#caracteristicas .carac-box {
     width: 180px;
     text-align: center;
     padding: 25px 15px;
-    box-shadow: 20px 20px 34px
-    rgb(139, 40, 139); 
+    box-shadow: 20px 20px 34px rgb(139, 40, 139);
     border: 1px solid aqua;
     border-radius: 4px;
     margin: 15px 0;
 
 }
-#caracteristicas .carac-box img{width: 70px;}
 
-#caracteristicas .carac-box:hover{box-shadow: 10px 10px 544px
-    rgb(139, 40, 139);}
+#caracteristicas .carac-box:hover {
+    box-shadow: 10px 10px 54px rgb(139, 40, 139);
+}
+
+#caracteristicas .carac-box img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#caracteristicas .carac-box h6 {
+    display: inline-block;
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: aqua;
+    background-color: rgb(139, 40, 139);
+
+}
+
+
+/* promociones */
+
+#seccion-promocion {
+    text-align: center;
+}
+
+
+#seccion-promocion .promo-produc {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+#seccion-promocion .produc {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid aqua;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgb(139, 40, 139);
+    margin: 15px 0;
+    transition: 0.2s ease;
+
+}
+
+#seccion-promocion .produc:hover {
+    box-shadow: 20px 20px 30px rgb(165, 24, 165)
+}
+
+#seccion-promocion .produc img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+#seccion-promocion .produc .promo-tipo {
+    text-align: start;
+    padding: 10px 0;
+}
+
+#seccion-promocion .produc .promo-tipo span {
+    color: aqua;
+    font-size: 12px;
+}
+
+#seccion-promocion .produc .promo-tipo h5 {
+    padding-top: 7px;
+    color: aqua;
+    font-size: 14px;
+}
+
+#seccion-promocion .produc .promo-tipo i {
+    font-size: 12px;
+    color: gold;
+}
+
+#seccion-promocion .produc .promo-tipo h4 {
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(139, 40, 139);
+
+
+}
+
+#seccion-promocion .produc .carrito-promo {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 40px;
+    background-color: rgb(139, 40, 139);
+    color: aqua;
+    bottom: 20px;
+    right: 10px;
+
+}
+
+/* banner */
+.banner {
+    margin: 40px 0;
+}
+
+#banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("imagen/bartender.jpg");
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+
+}
+
+#banner h4 {
+    font-size: 16px;
+
+}
+
+#banner h2 {
+    font-size: 30px;
+    padding: 10px 0;
+
+}
+
+#banner h2 span {
+    color: rgb(139, 40, 139);
+}
+
+
+#banner button:hover {
+    color: rgb(139, 40, 139);
+    background-color: aqua;
+}
+ /* fin index */
+
+
+ /* tienda */
+ #tienda-banner {
+    background-image: url("imagen/tienda-header.jpg");
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+ }
+/* barra de busqueda */
+#barra-produc .wrapper {display: flex;
+    background-color: rgb(139, 40, 139);
+    text-decoration: none;
+    list-style: none;
+    justify-content: space-between;
+    padding: 2rem;
+    color: aqua;
+
+}
+ .wrapper .boton-menu{background-color: rgb(139, 40, 139);
+border: none;
+color: aqua;
+border-radius: 4px;
+padding: 15px;
+transition: 0.3s;
+}
+
+.boton-menu:hover {
+    color: rgb(139, 40, 139);
+    background-color: aqua;
+}
+
+
+/* productos */
+
+#seccion-productos {
+    text-align: center;
+}
+
+
+#seccion-productos .produc-list {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+#seccion-productos .producto {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid aqua;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgb(139, 40, 139);
+    margin: 15px 0;
+    transition: 0.2s ease;
+
+}
+
+#seccion-productos .producto:hover {
+    box-shadow: 20px 20px 30px rgb(165, 24, 165)
+}
+
+#seccion-productos .producto img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+#seccion-productos .producto .tipo-producto {
+    text-align: start;
+    padding: 10px 0;
+}
+
+#seccion-productos .producto .tipo-producto span {
+    color: aqua;
+    font-size: 12px;
+}
+
+#seccion-productos .producto .tipo-producto h5 {
+    padding-top: 7px;
+    color: aqua;
+    font-size: 14px;
+}
+
+#seccion-productos .producto .tipo-producto i {
+    font-size: 12px;
+    color: gold;
+}
+
+#seccion-productos .producto .tipo-producto h4 {
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(139, 40, 139);
+
+
+}
+
+#seccion-productos .producto .carrito-produc {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 40px;
+    background-color: rgb(139, 40, 139);
+    color: aqua;
+    bottom: 20px;
+    right: 10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media */
+
+@media (max-width:800px) {
+    .section-p1 {
+        padding: 40px 40px;
+    }
+
+    #nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: black;
+        box-shadow: 0 40px 60px;
+        color: rgb(139, 40, 139);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    #nav.active {
+        right: 0px;
+
+    }
+
+    #nav li {
+        margin-bottom: 25px;
+    }
+
+    #celular {
+        display: flex;
+        align-items: center;
+    }
+
+    #celular i {
+        color: aqua;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    #cerrar {
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: aqua;
+        font-size: 24px;
+
+    }
+
+    #oferta {
+
+        height: 70vh;
+        padding: 0 80px;
+        background-position: top 30% right 30%;
+
+    }
+
+    #caracteristicas {
+
+        justify-content: center;
+
+    }
+
+    #caracteristicas .carac-box {
+        margin: 15px 15px;
+
+    }
+
+    #seccion-promocion .promo-produc {
+
+        justify-content: center;
+
+    }
+
+    #seccion-promocion .produc {
+
+        margin: 15px 15px;
+
+
+    }
+
+
+    #seccion-productos .produc-list {
+
+        justify-content: center;
+
+    }
+
+    #seccion-productos .producto {
+
+        margin: 15px 15px;
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+    .section-p1 {
+        padding: 20px;
+    }
+
+
+    #header {
+
+        padding: 10px 30px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+
+    #oferta {
+
+        padding: 0 20px;
+        background-position: 55%;
+    }
+
+}
+
