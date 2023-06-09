@@ -1,5 +1,6 @@
-/iintento de nav responsive/
 
+
+// intento responsive
 
 const bar = document.getElementById("barra");
 const cerrar = document.getElementById("cerrar");
@@ -22,203 +23,33 @@ if (cerrar) {
 
 }
 
-/array de productos/
 
-const productos =
-    [
-        {
-            nombre: "Budweiser",
-            tipo: "Cerveza",
-            imagen :"./imagen/budweiser.jpeg",
-            precio: 600
-        },
+let productos = [];
 
-        {
-            nombre: "Heineken",
-            tipo: "Cerveza",
-            imagen :"./imagen/heineken.jpeg",
-            precio: 500
-        },
+fetch("productos.json")
+.then(response => response.json())
+.then(data => {
+    productos = data;
+    cargarproductos(productos)
+})
 
-        {
-            nombre: "Stella Artois",
-            imagen :"./imagen/stella-artois.webp",
-            tipo: "Cerveza",
-            precio: 500
-        },
+const contenedorproductos = document.querySelector("#produc-list");
+const botonmenu = document.querySelectorAll(".boton-menu");
+let productoagregar = document.querySelectorAll(".producto-agregar");
 
-        {
-            nombre: "Corona",
-            tipo: "Cerveza",
-            imagen :"./imagen/corona.jpeg",
-            precio: 600
-        },
+// cargar productos en tienda
 
-        {
-            nombre: "Ginness",
-            tipo: "Cerveza",
-            imagen :"./imagen/ginness.jpeg",
-            precio: 500
-        },
+function cargarproductos(productos) {
 
-        {
-            nombre: "Snow",
-            tipo: "Cerveza",
-            imagen :"./imagen/SNOW.webp",
-            precio: 500
-
-        },
-
-        {
-            nombre: "Jägermeister",
-            tipo: "Licor",
-            imagen :"./imagen/JAGERMEISTER.webp",
-            precio: 1500
-        },
-
-        {
-            nombre: "Baileys",
-            tipo: "Licor",
-            imagen :"./imagen/BAILEYS.webp",
-            precio: 1500
-        },
-        {
-            nombre: "Khlibniy",
-            tipo: "Vodka",
-            imagen :"./imagen/KHLIBNIY.webp",
-            precio: 2500
-        },
-
-        {
-            nombre: "Jack Daniels",
-            tipo: "Whisky",
-            imagen :"./imagen/JACK-DANIELS.webp",
-            precio: 2500
-        },
-
-        {
-            nombre: "Absolut",
-            tipo: "Vodka",
-            imagen :"./imagen/ABSOLUT.webp",
-            precio: 1500
-        },
-
-        {
-            nombre: "Captain Morgan ",
-            tipo: "Ron",
-            imagen :"./imagen/CAPTAIN-MORGAN.webp",
-            precio: 3500
-        },
-
-        {
-            nombre: "Red Star Er Guo",
-            tipo: "Vodka",
-            imagen :"./imagen/RED-STAR.webp",
-            precio: 2500
-        },
-
-        {
-            nombre: "Bagpiper United Spirits",
-            tipo: "Whisky",
-            imagen :"./imagen/BAGPIPER.webp",
-            precio: 3500
-        },
-
-        {
-            nombre: "McDowell ‘s",
-            tipo: "Whisky",
-            imagen :"./imagen/MCDOWELLS.webp",
-            precio: 2500
-        },
-
-        {
-            nombre: "Officer ‘s ",
-            tipo: "Whisky",
-            imagen :"./imagen/OFFICER.webp",
-            precio: 4500
-        },
-
-        {
-            nombre: "Johnnie Walker",
-            tipo: "Whisky",
-            imagen :"./imagen/johnnie-walker.jpg",
-            precio: 5500
-        },
-
-        {
-            nombre: "Pirassunga 51 ",
-            tipo: "Cachaça",
-            imagen :"./imagen/PIRASSUGA-51.webp",
-            precio: 3500
-        },
-
-        {
-            nombre: "Tanduay ",
-            tipo: "Ron",
-            imagen :"./imagen/TANDUAY.webp",
-            precio: 5500
-        },
-
-        {
-            nombre: "Bacardi",
-            tipo: "Ron",
-            imagen :"./imagen/BACARDI.webp",
-            precio: 2500
-        },
-
-
-        {
-            nombre: "Emperador ",
-            tipo: "Brandy",
-            imagen :"./imagen/EMPERADOR.webp",
-            precio: 5500
-        },
-
-        {
-            nombre: "San Miguel ",
-            tipo: "Ginebra",
-            imagen :"./imagen/SAN-MIGUEL.webp",
-            precio: 4500
-        },
-        {
-            nombre: "Soju Chum Churum ",
-            tipo: "Soju",
-            imagen :"./imagen/CHUM-CHURUM.webp",
-            precio: 3500
-        },
-
-        {
-            nombre: "Smirnoff",
-            tipo: "Vodka",
-            imagen :"./imagen/SMIRNOFF.webp",
-            precio: 1500
-        },
-
-
-        {
-            nombre: "Jinro",
-            tipo: "Soju",
-            imagen :"./imagen/JINRO.webp",
-            precio: 5500
-        }
-    ]
-
-    const contenedorproductos = document.querySelector("#produc-list");
-const botonmenu = document.querySelectorAll(".boton-menu")
+    contenedorproductos.innerHTML = "";
 
 
 
-    function cargarproductos(productos) {
+    productos.forEach(producto => {
 
-        contenedorproductos.innerHTML="";
-
-     
-
-        productos.forEach(producto => {
-
-            const div = document.createElement("div");
-            div.classList.add("producto");
-            div.innerHTML =`<img src="${producto.imagen}" alt="${producto.nombre}">
+        const div = document.createElement("div");
+        div.classList.add("producto");
+        div.innerHTML = `<img src="${producto.imagen}" alt="${producto.nombre}">
             <div class="tipo-producto">
                 <span>${producto.nombre}</span>
                 <h5>${producto.tipo}</h5>
@@ -233,29 +64,67 @@ const botonmenu = document.querySelectorAll(".boton-menu")
                 ${producto.precio}
                 </h4>
             </div>
-            <button class="producto-agregar"><i class="fas fa-cart-shopping carrito-produc"></i></button>
+            <button class="producto-agregar" id="${producto.nombre}"><i class="bi bi-cart-fill" ></i></button>
     
             `;
-            contenedorproductos.append(div)
-            
-        })
+        contenedorproductos.append(div);
 
-    }
-    
+    })
 
-    cargarproductos(productos);
+    actualizarproductoagregar();
+}
 
-botonmenu.forEach(boton => {   
-    boton.addEventListener("click",(e) => {
-       
-        if (e.currentTarget.id !="todos") {
 
-      
-        const productosboton = productos.filter(producto => producto.tipo === e.currentTarget.id);
-        cargarproductos(productosboton);
-    } else(cargarproductos(productos))
-      })
+cargarproductos(productos);
+
+botonmenu.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+
+        if (e.currentTarget.id != "todos") {
+
+
+            const productosboton = productos.filter(producto => producto.tipo === e.currentTarget.id);
+            cargarproductos(productosboton);
+        } else (cargarproductos(productos))
+    })
 })
+    ;
+
+// carrito intento 54
+function actualizarproductoagregar() {
+    productoagregar = document.querySelectorAll(".producto-agregar");
+
+    productoagregar.forEach(boton => {
+        boton.addEventListener("click", agregarcarrito)
+
+
+    });
+};
+let productoscarrito;
+const productoscarritos = localStorage.getItem("productos-en-el-carrito");
+if (productoscarritos) {
+    productoscarrito = JSON.parse(productoscarritos);
+} else {
+ productoscarrito =[];
+}
+function agregarcarrito(e) {
+    const idboton = e.currentTarget.id;
+    const productoagregado = productos.find(producto => producto.nombre === idboton);
+
+    if (productoscarrito.some(producto => producto.nombre === idboton)) {
+        const index = productoscarrito.findIndex(producto => producto.nombre === idboton);
+        productoscarrito[index].cantidad++;
+    }
+
+    else {
+        productoagregado.cantidad = 1;
+        productoscarrito.push(productoagregado);
+    }
+   
+    localStorage.setItem("productos-en-el-carrito", JSON.stringify(productoscarrito))
+
+
+}
 
 
 
@@ -304,6 +173,3 @@ botonmenu.forEach(boton => {
 
 
 
-
-
-    

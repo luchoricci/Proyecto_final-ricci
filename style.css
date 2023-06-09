@@ -9,7 +9,9 @@
 
 }
 
-body {background-color: rgb(35, 32, 32);}
+body {
+    background-color: rgb(35, 32, 32);
+}
 
 h1 {
     font-size: 50px;
@@ -383,11 +385,12 @@ footer .copyright {
     color: rgb(139, 40, 139);
     background-color: aqua;
 }
- /* fin index */
+
+/* fin index */
 
 
- /* tienda */
- #tienda-banner {
+/* tienda */
+#tienda-banner {
     background-image: url("imagen/tienda-header.jpg");
     width: 100%;
     height: 40vh;
@@ -397,9 +400,11 @@ footer .copyright {
     text-align: center;
     flex-direction: column;
     padding: 14px;
- }
+}
+
 /* barra de busqueda */
-#barra-produc .wrapper {display: flex;
+#barra-produc .wrapper {
+    display: flex;
     background-color: rgb(139, 40, 139);
     text-decoration: none;
     list-style: none;
@@ -408,12 +413,14 @@ footer .copyright {
     color: aqua;
 
 }
- .wrapper .boton-menu{background-color: rgb(139, 40, 139);
-border: none;
-color: aqua;
-border-radius: 4px;
-padding: 15px;
-transition: 0.3s;
+
+.wrapper .boton-menu {
+    background-color: rgb(139, 40, 139);
+    border: none;
+    color: aqua;
+    border-radius: 4px;
+    padding: 15px;
+    transition: 0.3s;
 }
 
 .boton-menu:hover {
@@ -489,7 +496,7 @@ transition: 0.3s;
 
 }
 
-#seccion-productos .producto .carrito-produc {
+#seccion-productos .producto .producto-agregar {
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -502,16 +509,88 @@ transition: 0.3s;
 }
 
 
+/* carrito */
+.swal{
+    color: aqua;
+}
+
+.pcompra {
+    color: aqua;
+
+
+}
+
+.pcompra .pproducto {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    list-style: none;
+    padding: 10px;
+    margin: 20px;
+    width: 80%;
+}
+
+.pcompra .pproducto img {
+    width: 50px;
+
+}
+
+.contenedorcarrito .elimp {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 40px;
+    background-color: rgb(139, 40, 139);
+    color: aqua;
+    bottom: 20px;
+    right: 10px;
+}
 
 
 
+#partefinal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 30px;
+
+}
+
+#partefinal .vaciarcarrito {
+    background-color: rgb(139, 40, 139);
+    color: aqua;
+    font-size: 15px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+    padding: 12px 20px;
+}
+
+#partefinal .totalcompra {
+    background-color: black;
+    color: aqua;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 30px;
+
+}
+
+#partefinal table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+
+}
 
 
-
-
-
-
-
+#partefinal .comprar {
+    background-color: aqua;
+    color: rgb(139, 40, 139);
+    font-size: 15px;
+    padding: 12px 20px;
+   
+}
 
 
 
@@ -723,4 +802,3 @@ transition: 0.3s;
     }
 
 }
-
