@@ -33,7 +33,6 @@ if (cerrar) {
 let productoscarrito = localStorage.getItem("productos-en-el-carrito");
 productoscarrito = JSON.parse(productoscarrito);
 
-let elimp = document.querySelectorAll("#elimp");
 const vaciarcarrito = document.querySelector(".vaciarcarrito");
 
 
@@ -86,25 +85,3 @@ function actualizarelimp() {
     });
 
 }
-
-
-function eliminarp(e) {
-    const idBoton = e.currentTarget.id;
-    const index = productoscarrito.findIndex(producto => producto.nombre === idBoton);
-
-    productoscarrito.splice(index, 1);
-    cargarproductoscarrito();
-
-    localStorage.setItem("productoscarrito", JSON.stringify(productoscarrito));
-}
-
-function vaciarelcarrito() {
-    productoscarrito.len8gth = 0;
-    localStorage.setItem("productos-en-el-carrito",JSON.stringify(productoscarrito));
-}
-
-
-
-
-
-
