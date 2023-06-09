@@ -32,9 +32,7 @@ if (cerrar) {
 
 let productoscarrito = localStorage.getItem("productos-en-el-carrito");
 productoscarrito = JSON.parse(productoscarrito);
-
-const vaciarcarrito = document.querySelector(".vaciarcarrito");
-
+let elimp = document.querySelectorAll("#elimp");
 
 function cargarproductoscarrito() {
     if (productoscarrito) {
@@ -67,21 +65,13 @@ function cargarproductoscarrito() {
 
     } else { }
 
-    actualizarelimp();
+    
 
 };
 
 cargarproductoscarrito();
 
-actualizarelimp();
-
-function actualizarelimp() {
-    botonelimp = document.querySelectorAll(".elimp");
-
-    botonelimp.forEach(boton => {
-        boton.addEventListener("click", eliminarp);
 
 
-    });
 
-}
+

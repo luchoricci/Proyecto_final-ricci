@@ -30,7 +30,7 @@ fetch("productos.json")
 .then(response => response.json())
 .then(data => {
     productos = data;
-    cargarproductos(productos)
+    cargarproductos(productos);
 })
 
 const contenedorproductos = document.querySelector("#produc-list");
