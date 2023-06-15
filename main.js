@@ -1,4 +1,9 @@
-
+Swal.fire({
+    icon: 'warning',
+    title: 'Para comprar debes ser mayor de 18 años',
+    text: '¡puedes confirmarlo por favor?',
+    footer: '<span class="rojo">Informacion importante</span>'
+});
 
 // intento responsive
 
@@ -27,15 +32,19 @@ if (cerrar) {
 let productos = [];
 
 fetch("productos.json")
-.then(response => response.json())
-.then(data => {
-    productos = data;
-    cargarproductos(productos);
-})
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarproductos(productos);
+    })
 
 const contenedorproductos = document.querySelector("#produc-list");
 const botonmenu = document.querySelectorAll(".boton-menu");
 let productoagregar = document.querySelectorAll(".producto-agregar");
+const botoncarrito = document.querySelector(".boton-carrito");
+const contenedorcarrito = document.querySelector(".contenedorcarrito");
+let elimp = document.querySelectorAll("#elimp");
+const vaciarcarrito = document.querySelector(".vaciarcarrito");
 
 // cargar productos en tienda
 
@@ -53,13 +62,7 @@ function cargarproductos(productos) {
             <div class="tipo-producto">
                 <span>${producto.nombre}</span>
                 <h5>${producto.tipo}</h5>
-                <div class="estrellas">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
+            
                 <h4>
                 ${producto.precio}
                 </h4>
@@ -90,7 +93,10 @@ botonmenu.forEach(boton => {
 })
     ;
 
-// carrito intento 54
+botoncarrito.addEventListener("click", () => {
+    contenedorcarrito.classList.toggle("ocultarcarrito")
+});
+// parte 1
 function actualizarproductoagregar() {
     productoagregar = document.querySelectorAll(".producto-agregar");
 
@@ -100,12 +106,13 @@ function actualizarproductoagregar() {
 
     });
 };
+
 let productoscarrito;
-const productoscarritos = localStorage.getItem("productos-en-el-carrito");
+let productoscarritos = localStorage.getItem("productos-en-el-carrito");
 if (productoscarritos) {
     productoscarrito = JSON.parse(productoscarritos);
 } else {
- productoscarrito =[];
+    productoscarrito = [];
 }
 function agregarcarrito(e) {
     const idboton = e.currentTarget.id;
@@ -120,32 +127,83 @@ function agregarcarrito(e) {
         productoagregado.cantidad = 1;
         productoscarrito.push(productoagregado);
     }
-   
-    localStorage.setItem("productos-en-el-carrito", JSON.stringify(productoscarrito))
 
+    localStorage.setItem("productos-en-el-carrito", JSON.stringify(productoscarrito))
+    cargarproductoscarrito();
+
+}
+
+// parte2
+
+
+
+
+
+
+
+
+function cargarproductoscarrito() {
+    if (productoscarrito) {
+
+        contenedorcarrito1.innerHTML = "";
+
+        productoscarrito.forEach(producto => {
+
+            const div = document.createElement("div");
+            div.classList.add("pcompra");
+            div.innerHTML = `
+    
+    <ul id="pproducto" class="pproducto">
+    
+            <li><button class="elimp" id="${producto.nombre}"><i class="bi bi-x-circle-fill"></i></button></li>
+            <li><img src="${producto.imagen}" alt="${producto.nombre}"></li>
+            <li>${producto.nombre}</li>
+            <li>${producto.tipo}</li>
+            <li>${producto.precio}</li>
+            <li>${producto.cantidad}</li>
+            <li>${producto.cantidad * producto.precio}</li>
+
+    </ul>
+    
+
+        `;
+            contenedorcarrito1.append(div);
+
+
+        })
+
+    } else { }
+
+    actualizarelimp();
+
+};
+
+cargarproductoscarrito();
+
+actualizarelimp();
+
+function actualizarelimp() {
+    botonelimp = document.querySelectorAll(".elimp");
+
+    botonelimp.forEach(boton => {
+        boton.addEventListener("click", eliminarp);
+
+
+    });
 
 }
 
 
+function eliminarp(e) {
+    const idBoton = e.currentTarget.id;
+    const index = productoscarrito.findIndex(producto => producto.nombre === idBoton);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    productoscarrito.splice(index, 1);
+    cargarproductoscarrito();
+    console.log(productoscarrito)
+    localStorage.setItem("productos-en-el-carrito", JSON.stringify(productoscarrito))
+}
+cargarproductoscarrito();
 
 
 
