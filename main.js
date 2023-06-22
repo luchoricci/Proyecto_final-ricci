@@ -44,7 +44,7 @@ let productoagregar = document.querySelectorAll(".producto-agregar");
 const botoncarrito = document.querySelector(".boton-carrito");
 const contenedorcarrito = document.querySelector(".contenedorcarrito");
 let elimp = document.querySelectorAll("#elimp");
-const vaciarcarrito = document.querySelector(".vaciarcarrito");
+let total = 0
 
 // cargar productos en tienda
 
@@ -62,6 +62,13 @@ function cargarproductos(productos) {
             <div class="tipo-producto">
                 <span>${producto.nombre}</span>
                 <h5>${producto.tipo}</h5>
+                <div class="estrellas">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
             
                 <h4>
                 ${producto.precio}
@@ -133,11 +140,6 @@ function agregarcarrito(e) {
 
 }
 
-// parte2
-
-
-
-
 
 
 
@@ -197,13 +199,14 @@ function actualizarelimp() {
 function eliminarp(e) {
     const idBoton = e.currentTarget.id;
     const index = productoscarrito.findIndex(producto => producto.nombre === idBoton);
-
     productoscarrito.splice(index, 1);
     cargarproductoscarrito();
     console.log(productoscarrito)
     localStorage.setItem("productos-en-el-carrito", JSON.stringify(productoscarrito))
 }
 cargarproductoscarrito();
+
+
 
 
 
