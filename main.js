@@ -44,6 +44,7 @@ let productoagregar = document.querySelectorAll(".producto-agregar");
 const botoncarrito = document.querySelector(".boton-carrito");
 const contenedorcarrito = document.querySelector(".contenedorcarrito");
 let elimp = document.querySelectorAll("#elimp");
+
 let total = 0
 
 // cargar productos en tienda
