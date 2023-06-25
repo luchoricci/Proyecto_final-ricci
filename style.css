@@ -244,12 +244,19 @@ footer .copyright {
 #oferta button {
     background-image: url("imagen/fondoboton.jpeg");
     background-color: transparent;
-    color: aqua;
+    
     border: 0;
     padding: 14px 80px 14px 65px;
     background-repeat: no-repeat;
     cursor: pointer;
     font-size: 15px;
+    
+
+}
+
+#oferta button a {
+    text-decoration: none;
+    color: aqua;
 
 }
 

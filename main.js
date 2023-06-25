@@ -44,8 +44,9 @@ let productoagregar = document.querySelectorAll(".producto-agregar");
 const botoncarrito = document.querySelector(".boton-carrito");
 const contenedorcarrito = document.querySelector(".contenedorcarrito");
 let elimp = document.querySelectorAll("#elimp");
+const botoncomprar = document.querySelector(".comprar");
 
-let total = 0
+
 
 // cargar productos en tienda
 
@@ -206,6 +207,34 @@ function eliminarp(e) {
     localStorage.setItem("productos-en-el-carrito", JSON.stringify(productoscarrito))
 }
 cargarproductoscarrito();
+
+botoncomprar.addEventListener (
+    "click", comprarproductos,);
+
+    function comprarproductos() {
+
+
+
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Compra exitosa',
+            showConfirmButton: false,
+            timer: 1500
+          }); 
+             
+
+
+    }
+
+    
+
+   
+    
+   
+   
+   
+   
 
 
 
