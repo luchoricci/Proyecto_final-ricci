@@ -174,6 +174,7 @@ function cargarproductoscarrito() {
 
         `;
             contenedorcarrito1.append(div);
+            total();
 
 
         })
@@ -181,6 +182,7 @@ function cargarproductoscarrito() {
     } else { }
 
     actualizarelimp();
+    total();
 
 };
 
@@ -204,7 +206,7 @@ function total() {
     const calculartotal = productoscarrito.reduce((acc, producto) => acc +(producto.precio * producto.cantidad), 0);
 totalpagar.innerText =  `$${calculartotal} `
 }
-total();
+
 
 
 function eliminarp(e) {

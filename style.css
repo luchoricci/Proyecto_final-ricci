@@ -596,7 +596,11 @@ footer .copyright {
 .ocultarcarrito{
     display: none;
 }
-
+.contenedorcarrito2{
+    display: flex;
+  
+    padding: 1rem;
+}
 .totalcompra {
     background-color: black;
     color: aqua;
@@ -610,6 +614,7 @@ footer .copyright {
     color: rgb(139, 40, 139);
     font-size: 15px;
     padding: 12px 20px;
+   
 }
 
 
