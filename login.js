@@ -55,11 +55,9 @@ const persona = [
 },
 
 ]
-
 function registrarp() {
-    localStorage.setItem("persona", JSON.stringify(persona))
-
-}
+localStorage.setItem("persona", JSON.stringify(persona))}
+console.log(persona)
 
 
 function loguear ()

@@ -214,27 +214,30 @@ function eliminarp(e) {
     const index = productoscarrito.findIndex(producto => producto.nombre === idBoton);
     productoscarrito.splice(index, 1);
     cargarproductoscarrito();
-    console.log(productoscarrito)
+    
     localStorage.setItem("productos-en-el-carrito", JSON.stringify(productoscarrito))
 }
 cargarproductoscarrito();
 
 
-
+const personaregistrada = JSON.parse(localStorage.getItem("persona"));
 
 
 botoncomprar.addEventListener (
     "click", comprarproductos,);
 
+
     function comprarproductos() {
 
+        
 
         Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
-            title: 'Compra exitosa',
+            title: 'gracias por comprar "${rnombre}"',
             showConfirmButton: false,
-            timer: 750
+            timer: 1500
+            
           }); 
              
 
