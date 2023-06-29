@@ -42,3 +42,19 @@ const contraceña = document.getElementById("contraceña");
 const rnombre = document.getElementById("rnombre");
 const remail = document.getElementById("remail");
 const rcontraceña = document.getElementById("rcontraceña");
+
+
+function loguear ()
+{
+    let usuario=document.getElementById("email").value;
+    let contraceña=document.getElementById("contraceña").value;
+   
+
+    if( usuario==("luciano@hotmail.com") && contraceña==("1234"))
+    {
+        window.location="index.html"
+    }
+    else{
+        alert("datos incorrectos")
+    }
+};

@@ -45,6 +45,7 @@ const botoncarrito = document.querySelector(".boton-carrito");
 const contenedorcarrito = document.querySelector(".contenedorcarrito");
 let elimp = document.querySelectorAll("#elimp");
 const botoncomprar = document.querySelector(".comprar");
+const totalpagar = document.querySelector("#totalpagar")
 
 
 
@@ -88,6 +89,7 @@ function cargarproductos(productos) {
 
 
 cargarproductos(productos);
+
 
 botonmenu.forEach(boton => {
     boton.addEventListener("click", (e) => {
@@ -184,6 +186,7 @@ function cargarproductoscarrito() {
 
 cargarproductoscarrito();
 
+
 actualizarelimp();
 
 function actualizarelimp() {
@@ -197,6 +200,12 @@ function actualizarelimp() {
 
 }
 
+function total() {
+    const calculartotal = productoscarrito.reduce((acc, producto) => acc +(producto.precio * producto.cantidad), 0);
+totalpagar.innerText =  `$${calculartotal} `
+}
+total();
+
 
 function eliminarp(e) {
     const idBoton = e.currentTarget.id;
@@ -208,11 +217,15 @@ function eliminarp(e) {
 }
 cargarproductoscarrito();
 
+
+
+
+
+
 botoncomprar.addEventListener (
     "click", comprarproductos,);
 
     function comprarproductos() {
-
 
 
         Swal.fire({
@@ -220,7 +233,7 @@ botoncomprar.addEventListener (
             icon: 'success',
             title: 'Compra exitosa',
             showConfirmButton: false,
-            timer: 1500
+            timer: 750
           }); 
              
 
