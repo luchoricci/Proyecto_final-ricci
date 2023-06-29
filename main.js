@@ -223,7 +223,6 @@ cargarproductoscarrito();
 
 
 
-
 botoncomprar.addEventListener (
     "click", comprarproductos,);
 

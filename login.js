@@ -38,19 +38,42 @@ linklogin.addEventListener("click", ()=>{
 
 const email = document.getElementById("email");
 const contraceña = document.getElementById("contraceña");
+const rnombre = document.getElementById("rnombre").value;
+const remail = document.getElementById("remail").value;
+const rcontraceña = document.getElementById("rcontraceña").value;
 
-const rnombre = document.getElementById("rnombre");
-const remail = document.getElementById("remail");
-const rcontraceña = document.getElementById("rcontraceña");
+const persona = [
+    {
+        rnombre
+    },
+    {
+        remail
+    },
+
+{
+    rcontraceña
+},
+
+]
+
+function registrarp() {
+    localStorage.setItem("persona", JSON.stringify(persona))
+
+}
 
 
 function loguear ()
 {
     let usuario=document.getElementById("email").value;
     let contraceña=document.getElementById("contraceña").value;
+let remail = document.getElementById("remail").value;
+let rcontraceña = document.getElementById("rcontraceña").value;
+
+
+
    
 
-    if( usuario==("luciano@hotmail.com") && contraceña==("1234"))
+    if( usuario==remail && contraceña==rcontraceña)
     {
         window.location="index.html"
     }
